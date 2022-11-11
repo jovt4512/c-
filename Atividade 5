@@ -1,0 +1,72 @@
+class Funcionario
+{
+private string Nome;
+private int Matricula;
+public string Cpf;
+public Funcionario(string nome, int matricula, string cpf)
+{
+this.Nome = nome;
+this.Matricula = matricula;
+this.Cpf = cpf;
+}
+public string GetNome()
+{
+return this.Nome;
+}
+public void SetNome(string nome)
+{
+this.Nome = nome;
+}
+public int GetMatricula()
+{
+return this.Matricula;
+}
+public void SetMatricula(int matricula)
+{
+this.Matricula = matricula;
+}
+public string GetCpf()
+{
+return this.Cpf;
+}
+public void SetCpf(string Cpf)
+{
+this.Cpf = Cpf;
+}
+public void Imprimefuncionario()
+{
+Console.WriteLine(this.Nome + " " + this.Matricula + " " + this.Cpf);
+}
+}
+
+class Departamento
+{
+public string nome;
+ArrayList Funcionarios = new ArrayList();
+public void Adicfuncionario(string nome, int matricula, string cpf)
+{
+Funcionario f = new Funcionario(nome, matricula, cpf);
+this.Funcionarios.Add(f);
+}
+
+public void Imprimedepartamento()
+{
+foreach (Funcionario f in Funcionarios)
+{
+f.Imprimefuncionario();
+}
+}
+}
+
+class Program
+{
+static void Main(string[] args)
+{
+Departamento d = new Departamento();
+d.nome = "Vendas";
+d.Adicfuncionario("maria", 123, "6765657");
+d.Adicfuncionario("pedro", 789, "2213438");
+d.Imprimedepartamento();
+Console.ReadKey();
+}
+}
